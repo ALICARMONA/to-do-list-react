@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { Card } from "./card";
-
 export function Home() {
+	// FUNCION AGREAR PALABRA al array de To Dos
 	const handleAdd = () => {
 		setListItems([...listItems, newItem]);
 		setNewItem("");
 	};
-
-	const handleDelete = itemToDelete => {
+	//FUNCION---BORRA index o posicion de la lista comparando la selecionada vs las demas
+	const handleDelete = indexToDelete => {
 		const newList = listItems.filter((newItem, index) => {
-			return newItem != itemToDelete;
+			return index != indexToDelete;
 		});
+		//reinicioo
 		setListItems(newList);
 	};
-
+	//ESTADOS
 	const [listItems, setListItems] = useState([]);
 	const [newItem, setNewItem] = useState("");
 	return (
@@ -40,7 +41,7 @@ export function Home() {
 							<li
 								className="list-group-item"
 								key={index}
-								onClick={event => handleDelete(newItem)}>
+								onClick={event => handleDelete(index)}>
 								<Card name={newItem} />
 							</li>
 						);
