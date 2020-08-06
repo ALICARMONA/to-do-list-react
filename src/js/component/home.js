@@ -18,7 +18,7 @@ export function Home() {
 	const [listItems, setListItems] = useState([]);
 	const [newItem, setNewItem] = useState("");
 	return (
-		<div className="text-center mt-5">
+		<div className="text-center mt-5 bg-secondary">
 			<h1>To-Dos</h1>
 			<input
 				type="text"
@@ -48,6 +48,7 @@ export function Home() {
 					})}
 				</ul>
 			</div>
+			{/* etiqueta para indicar numeros de To Dos */}
 			<label
 				className={`text-success font-weight-bold ${
 					listItems.length > 0 ? "text-danger" : ""
